@@ -1,15 +1,20 @@
-const fs = require('node:fs/promises');
+const { getStoredItems, storeItems } = require('../data/items');
 
-async function getStoredItems() {
-  const rawFileContent = await fs.readFile('items.json', { encoding: 'utf-8' });
-  const data = JSON.parse(rawFileContent);
-  const storedItems = data.items ?? [];
-  return storedItems;
-}
-
-function storeItems(items) {
-  return fs.writeFile('items.json', JSON.stringify({ items: items || [] }));
-}
-
-exports.getStoredItems = getStoredItems;
-exports.storeItems = storeItems;
+module.exports = async (req, res) => {
+  if (req.method === 'GET') {
+    const storedItems = await getStoredItems();
+    res.status(200).json({ items: storedItems });
+  } else if (req.method === 'POST') {
+    const itemData = req.body;
+    const newItem = {
+      ...itemData,
+      id: Math.random().toString(),
+    };
+    const existingItems = await getStoredItems();
+    const updatedItems = [newItem, ...existingItems];
+    await storeItems(updatedItems);
+    res.status(201).json({ message: 'Stored new item.', item: newItem });
+  } else {
+    res.status(405).json({ message: 'Method not allowed' });
+  }
+};
