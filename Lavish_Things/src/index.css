@@ -140,7 +140,7 @@ header {
 
 .copyright {
   color: #94969f;
-  text-align: end;
+  text-align: center;
   padding: 15px;
 }
 
@@ -390,7 +390,7 @@ a.action_container:link {
   .logo_container {
     margin: 0;
     width: 100%;
-    text-align: center;
+    text-align: left;
   }
 
   .lavish_home {
