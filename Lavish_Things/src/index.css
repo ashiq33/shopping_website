@@ -396,11 +396,7 @@ a.action_container:link {
   .lavish_home {
     height: 60px;
   }
-
-  .nav_bar {
-    display: none; /* Hide the navigation bar */
-  }
-
+  
   .search_bar {
     margin: 10px auto;
     width: 90%;
@@ -413,7 +409,6 @@ a.action_container:link {
     order: 3;
   }
 
-  /* Adjust Bag Section Layout */
 .bag-items-container {
   display: flex;
   flex-wrap: wrap;
@@ -423,7 +418,7 @@ a.action_container:link {
 }
 
 .item-left-part {
-  flex: 3; /* Take up more space */
+  flex: 3; 
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -440,7 +435,7 @@ a.action_container:link {
 }
 
 .bag-item img {
-  width: 80px; /* Smaller image size */
+  width: 80px; 
   height: auto;
   border-radius: 4px;
 }
@@ -451,7 +446,7 @@ a.action_container:link {
 }
 
 .bag-item-details h3 {
-  font-size: 14px; /* Reduce text size */
+  font-size: 14px; 
   margin-bottom: 5px;
 }
 
@@ -534,8 +529,7 @@ a.action_container:link {
   }
 
   .footer_column a {
-    font-size: 12px; /* Reduce footer text size for smaller screens */
-  }
+    font-size: 12px; 
 
   .footer_column h3 {
     font-size: 14px;
